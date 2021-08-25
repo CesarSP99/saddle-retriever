@@ -6,3 +6,7 @@ prefix: SaddleRemover
 authors: [ CesarSP ]
 description: A plugin that allows you to get saddles from pigs and striders
 website: www.cesarsp.com
+permissions:
+  saddleremover.use:
+    description: Allows player to retrieve saddles from pigs and striders
+    default: false
