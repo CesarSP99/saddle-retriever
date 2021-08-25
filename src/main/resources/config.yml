@@ -1,0 +1,6 @@
+#You can set this to true to check for saddleremover.use permission in order to allow a player to get saddles
+use-permissions: false
+#These are the messages a player receives when they don't have the permissions for retrieving saddles
+messages:
+  no-permission-pig: "&cYou don't have permissions to get saddles back from pigs"
+  no-permission-strider: "&cYou don't have permissions to get saddles back from striders"
