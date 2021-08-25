@@ -1,8 +1,8 @@
-name: Saddle Remover
+name: SaddleRemover
 version: '${version}'
 main: com.cesarsp.plugins.saddleremover.SaddleRemover
-api-version: 1.16.1
-prefix: Saddle Remover
+api-version: 1.16
+prefix: SaddleRemover
 authors: [ CesarSP ]
 description: A plugin that allows you to get saddles from pigs and striders
 website: www.cesarsp.com
