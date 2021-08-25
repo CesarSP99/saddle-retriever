@@ -7,6 +7,15 @@ authors: [ CesarSP ]
 description: A plugin that allows you to get saddles from pigs and striders
 website: www.cesarsp.com
 permissions:
-  saddleremover.use:
-    description: Allows player to retrieve saddles from pigs and striders
+  saddleremover.*:
+    description: Allows player to retrieve saddles from both pigs and striders
+    default: op
+    children:
+      saddleremover.pigs: true
+      saddleremover.striders: true
+  saddleremover.pigs:
+    description: Permission for retrieving saddles from pigs
+    default: false
+  saddleremover.striders:
+    description: Permission for retrieving saddles from striders
     default: false
