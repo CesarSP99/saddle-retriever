@@ -1,6 +1,6 @@
-package com.cesarsp.plugins.saddleremover.Listeners;
+package com.cesarsp.plugins.saddleretriever.Listeners;
 
-import com.cesarsp.plugins.saddleremover.SaddleRemover;
+import com.cesarsp.plugins.saddleretriever.SaddleRetriever;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Material;
@@ -30,13 +30,13 @@ public class ShiftRightClickListener implements Listener {
     }
 
     private void tryToRemoveSaddle(Player player, Steerable steerableEntity) {
-        FileConfiguration config = SaddleRemover.getInstance().getConfig();
+        FileConfiguration config = SaddleRetriever.getInstance().getConfig();
         ConfigurationSection messages = config.getConfigurationSection("messages");
         String pigNoPermission = messages != null ? messages.getString("no-permission-pig") : "No permission";
         String striderNoPermission = messages != null ? messages.getString("no-permission-strider") : "No permission";
         if (config.getBoolean("use-permissions")) {
             if (steerableEntity instanceof Pig) {
-                if (player.hasPermission("saddleremover.pig")) {
+                if (player.hasPermission("saddleretriever.pig")) {
                     steerableEntity.setSaddle(false);
                     player.getInventory().addItem(new ItemStack(Material.SADDLE, 1));
                 } else {
@@ -45,7 +45,7 @@ public class ShiftRightClickListener implements Listener {
                     player.spigot().sendMessage(message);
                 }
             } else {
-                if (player.hasPermission("saddleremover.strider")) {
+                if (player.hasPermission("saddleretriever.strider")) {
                     steerableEntity.setSaddle(false);
                     player.getInventory().addItem(new ItemStack(Material.SADDLE, 1));
                 } else {

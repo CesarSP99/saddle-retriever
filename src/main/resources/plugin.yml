@@ -1,29 +1,29 @@
-name: SaddleRemover
+name: SaddleRetriever
 version: '${version}'
-main: com.cesarsp.plugins.saddleremover.SaddleRemover
+main: com.cesarsp.plugins.saddleretriever.SaddleRetriever
 api-version: 1.16
-prefix: SaddleRemover
+prefix: SaddleRetriever
 authors: [ CesarSP ]
 description: A plugin that allows you to get saddles from pigs and striders
-website: www.cesarsp.com
+website: github.com/CesarSP/saddle-retriever
 permissions:
-  saddleremover.*:
+  saddleretriever.*:
     description: Allows player to retrieve saddles from both pigs and striders
     default: op
     children:
-      saddleremover.pigs: true
-      saddleremover.striders: true
-      saddleremover.reload: true
-  saddleremover.pigs:
+      saddleretriever.pigs: true
+      saddleretriever.striders: true
+      saddleretriever.reload: true
+  saddleretriever.pigs:
     description: Permission for retrieving saddles from pigs
     default: false
-  saddleremover.striders:
+  saddleretriever.striders:
     description: Permission for retrieving saddles from striders
     default: false
-  saddleremover.reload:
+  saddleretriever.reload:
     description: Reloads the plugin's settings
     default: op
 commands:
-  saddleremover:
+  saddleretriever:
     description: Set yourself on fire.
     aliases: [ sr ]

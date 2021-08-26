@@ -1,4 +1,4 @@
-#You can set this to true to check for saddleremover.use permission in order to allow a player to get saddles
+#You can set this to true to check for saddleretriever.use permission in order to allow a player to get saddles
 use-permissions: false
 #These are the messages a player receives when they don't have the permissions for retrieving saddles
 messages:

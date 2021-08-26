@@ -1,6 +1,6 @@
-package com.cesarsp.plugins.saddleremover.CommandExecutors;
+package com.cesarsp.plugins.saddleretriever.CommandExecutors;
 
-import com.cesarsp.plugins.saddleremover.SaddleRemover;
+import com.cesarsp.plugins.saddleretriever.SaddleRetriever;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.command.Command;
@@ -11,14 +11,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class SaddleRemoverCommand implements CommandExecutor, TabCompleter {
+public class SaddleRetrieverCommand implements CommandExecutor, TabCompleter {
 
     private final List<String> completions = Collections.singletonList("reload");
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if (args.length != 0 && args[0].equals("reload") && sender.hasPermission("saddleremover.reload")) {
-            SaddleRemover.getInstance().reloadConfig();
+        if (args.length != 0 && args[0].equals("reload") && sender.hasPermission("saddleretriever.reload")) {
+            SaddleRetriever.getInstance().reloadConfig();
             TextComponent message = new TextComponent("Plugin settings reloaded successfully :)");
             message.setColor(ChatColor.AQUA);
             sender.spigot().sendMessage(message);

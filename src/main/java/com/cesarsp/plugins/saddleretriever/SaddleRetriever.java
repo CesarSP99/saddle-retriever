@@ -1,7 +1,7 @@
-package com.cesarsp.plugins.saddleremover;
+package com.cesarsp.plugins.saddleretriever;
 
-import com.cesarsp.plugins.saddleremover.CommandExecutors.SaddleRemoverCommand;
-import com.cesarsp.plugins.saddleremover.Listeners.ShiftRightClickListener;
+import com.cesarsp.plugins.saddleretriever.CommandExecutors.SaddleRetrieverCommand;
+import com.cesarsp.plugins.saddleretriever.Listeners.ShiftRightClickListener;
 import org.bukkit.command.*;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -9,9 +9,9 @@ import java.util.Collections;
 import java.util.List;
 import java.util.logging.Logger;
 
-public final class SaddleRemover extends JavaPlugin {
+public final class SaddleRetriever extends JavaPlugin {
 
-    private static SaddleRemover instance;
+    private static SaddleRetriever instance;
     private FileConfiguration config;
     private final List<String> aliases = Collections.singletonList("sr");
 
@@ -19,15 +19,15 @@ public final class SaddleRemover extends JavaPlugin {
     public void onEnable() {
         // Plugin startup logic
         Logger logger = this.getLogger();
-        logger.info("Trying to initialize SaddleRemover...");
+        logger.info("Trying to initialize SaddleRetriever...");
         try {
             instance = this;
             reloadConfig();
             registerCommands();
             registerEvents();
-            logger.info("SaddleRemover was initialized successfully! :D");
+            logger.info("SaddleRetriever was initialized successfully! :D");
         } catch (Exception e) {
-            logger.severe("An error has occurred while trying to initialize SaddleRemover");
+            logger.severe("An error has occurred while trying to initialize SaddleRetriever");
             logger.severe(e.toString());
             getPluginLoader().disablePlugin(this);
         }
@@ -38,9 +38,9 @@ public final class SaddleRemover extends JavaPlugin {
     }
 
     private void registerCommands() {
-        TabCompleter tabCompleter = new SaddleRemoverCommand();
+        TabCompleter tabCompleter = new SaddleRetrieverCommand();
         CommandExecutor executor = (CommandExecutor) tabCompleter;
-        PluginCommand command = this.getCommand("saddleremover");
+        PluginCommand command = this.getCommand("saddleretriever");
         if(command != null){
             command.setAliases(aliases);
             command.setTabCompleter(tabCompleter);
@@ -55,7 +55,7 @@ public final class SaddleRemover extends JavaPlugin {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!command.getName().equals("reload")) return super.onCommand(sender, command, label, args);
         reloadConfig(); // Load config
-        sender.sendMessage("SaddleRemover's configuration has been reloaded");
+        sender.sendMessage("SaddleRetriever's configuration has been reloaded");
         return true;
     }
 
@@ -72,10 +72,10 @@ public final class SaddleRemover extends JavaPlugin {
     public void onDisable() {
         // Plugin shutdown logic
         Logger logger = this.getLogger();
-        logger.info("Disabling Saddle Remover");
+        logger.info("Disabling SaddleRetriever");
     }
 
-    public static SaddleRemover getInstance() {
+    public static SaddleRetriever getInstance() {
         return instance;
     }
 }
