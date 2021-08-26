@@ -1,6 +1,8 @@
 package com.cesarsp.plugins.saddleremover.CommandExecutors;
 
 import com.cesarsp.plugins.saddleremover.SaddleRemover;
+import net.md_5.bungee.api.ChatColor;
+import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -17,9 +19,13 @@ public class SaddleRemoverCommand implements CommandExecutor, TabCompleter {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (args.length != 0 && args[0].equals("reload") && sender.hasPermission("saddleremover.reload")) {
             SaddleRemover.getInstance().reloadConfig();
-            sender.sendMessage("Plugin settings reloaded successfully :)");
+            TextComponent message = new TextComponent("Plugin settings reloaded successfully :)");
+            message.setColor(ChatColor.AQUA);
+            sender.spigot().sendMessage(message);
         } else {
-            sender.sendMessage("You don't have permissions to perform this action");
+            TextComponent message = new TextComponent("You don't have permissions to perform this action");
+            message.setColor(ChatColor.RED);
+            sender.spigot().sendMessage(message);
         }
         return true;
     }

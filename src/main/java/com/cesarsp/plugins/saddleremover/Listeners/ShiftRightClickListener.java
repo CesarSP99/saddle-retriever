@@ -1,6 +1,8 @@
 package com.cesarsp.plugins.saddleremover.Listeners;
 
 import com.cesarsp.plugins.saddleremover.SaddleRemover;
+import net.md_5.bungee.api.ChatColor;
+import net.md_5.bungee.api.chat.TextComponent;
 import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -38,14 +40,18 @@ public class ShiftRightClickListener implements Listener {
                     steerableEntity.setSaddle(false);
                     player.getInventory().addItem(new ItemStack(Material.SADDLE, 1));
                 } else {
-                    player.sendMessage(pigNoPermission != null ? pigNoPermission : "No permission");
+                    TextComponent message = new TextComponent(pigNoPermission != null ? pigNoPermission : "No permission");
+                    message.setColor(ChatColor.RED);
+                    player.spigot().sendMessage(message);
                 }
             } else {
                 if (player.hasPermission("saddleremover.strider")) {
                     steerableEntity.setSaddle(false);
                     player.getInventory().addItem(new ItemStack(Material.SADDLE, 1));
                 } else {
-                    player.sendMessage(striderNoPermission != null ? striderNoPermission : "No permission");
+                    TextComponent message = new TextComponent(striderNoPermission != null ? striderNoPermission : "No permission");
+                    message.setColor(ChatColor.RED);
+                    player.spigot().sendMessage(message);
                 }
             }
         } else {
