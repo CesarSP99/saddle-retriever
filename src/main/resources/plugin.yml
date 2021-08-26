@@ -13,9 +13,17 @@ permissions:
     children:
       saddleremover.pigs: true
       saddleremover.striders: true
+      saddleremover.reload: true
   saddleremover.pigs:
     description: Permission for retrieving saddles from pigs
     default: false
   saddleremover.striders:
     description: Permission for retrieving saddles from striders
     default: false
+  saddleremover.reload:
+    description: Reloads the plugin's settings
+    default: op
+commands:
+  saddleremover:
+    description: Set yourself on fire.
+    aliases: [ sr ]
