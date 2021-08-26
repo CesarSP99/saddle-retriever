@@ -1,7 +1,7 @@
 package com.cesarsp.plugins.saddleretriever;
-
 import com.cesarsp.plugins.saddleretriever.CommandExecutors.SaddleRetrieverCommand;
 import com.cesarsp.plugins.saddleretriever.Listeners.ShiftRightClickListener;
+import org.bstats.bukkit.Metrics;
 import org.bukkit.command.*;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -22,6 +22,7 @@ public final class SaddleRetriever extends JavaPlugin {
         logger.info("Trying to initialize SaddleRetriever...");
         try {
             instance = this;
+            enableMetrics();
             reloadConfig();
             registerCommands();
             registerEvents();
@@ -31,6 +32,11 @@ public final class SaddleRetriever extends JavaPlugin {
             logger.severe(e.toString());
             getPluginLoader().disablePlugin(this);
         }
+    }
+
+    private void enableMetrics() {
+        int pluginId = 12608;
+        Metrics metrics = new Metrics(this, pluginId);
     }
 
     private void registerEvents() {
