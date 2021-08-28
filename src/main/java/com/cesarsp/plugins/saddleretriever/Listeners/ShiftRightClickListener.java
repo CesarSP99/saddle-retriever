@@ -36,7 +36,7 @@ public class ShiftRightClickListener implements Listener {
         String striderNoPermission = messages != null ? messages.getString("no-permission-strider") : "No permission";
         if (config.getBoolean("use-permissions")) {
             if (steerableEntity instanceof Pig) {
-                if (player.hasPermission("saddleretriever.pig")) {
+                if (player.hasPermission("saddleretriever.pigs")) {
                     steerableEntity.setSaddle(false);
                     player.getInventory().addItem(new ItemStack(Material.SADDLE, 1));
                 } else {
@@ -45,7 +45,7 @@ public class ShiftRightClickListener implements Listener {
                     player.spigot().sendMessage(message);
                 }
             } else {
-                if (player.hasPermission("saddleretriever.strider")) {
+                if (player.hasPermission("saddleretriever.striders")) {
                     steerableEntity.setSaddle(false);
                     player.getInventory().addItem(new ItemStack(Material.SADDLE, 1));
                 } else {
